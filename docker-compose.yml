@@ -1,0 +1,17 @@
+version: '3'
+
+networks: 
+    freecodecamp:
+
+services:
+    notebook:
+        image: mauro/pydata
+        container_name: jnotebook
+        command: jupyter notebook --ip=0.0.0.0
+        working_dir: /home/$USER/python
+        volumes: 
+            - .:/home/$USER/python
+        ports: 
+            - 8888:8888
+        networks: 
+            - freecodecamp
